@@ -55,8 +55,23 @@ const { createApp } = Vue
       },
       clickThumb(e){
          this.activeImage = e.target.id - 1;
+      },
+      autoplay: function(){
+         let t = this;
+         setInterval(function(){
+            t.activeImage++;
+            if (t.activeImage > t.slides.length - 1) {
+               t.activeImage = 0
+            }
+         }, 3000)
       }
-    }
+    },
+    mounted() {
+      this.autoplay()
+    },
   }).mount('#app')
 
-  /*Bonus: 1- al click su una thumb, visualizzare in grande l'immagine corrispondente 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce*/
+
+
+
+  /*2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce*/
