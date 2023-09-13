@@ -48,8 +48,8 @@ const { createApp } = Vue
             this.activeImage = this.slides.length - 1;
          }
       },
-      clickThumb(e){
-         this.activeImage = e.currentTarget.id;
+      clickThumb(i){
+         this.activeImage = i;
       },
       auto(){
          this.autoSlider = setInterval(this.next, 3000)
